@@ -12,7 +12,7 @@ module.exports = {
         type: 'string'
       },
       password: {
-          type: 'string"
+          type: 'string'
                 },
       firstName:{
           type:'string'
