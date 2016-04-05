@@ -15,7 +15,7 @@ module.exports = {
       solveCount:  {
           type: 'integer'
       },
-      unqId: {
+      uniqId: {
       type: 'integer'
   }
   }
