@@ -7,9 +7,9 @@
 
 module.exports = { 
     
-    Progress: function(req,res){
+Progress: function (req, res) {
         var userid = req.param('user')
-        User.findOne({'username': userid}).exec(function(err,userobject)){
+          User.findOne({'username': userid}).exec(function(err, userobject){
                 if(err || !userobject){
                     res.send('user not found')
                         }
@@ -17,7 +17,7 @@ module.exports = {
                     res.send(userobject.accomplished.length)
                 }
         
-                                             }
+        })
     }
     
 	
