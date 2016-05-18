@@ -15,7 +15,7 @@ module.exports = {
     
     res.view('signin');
 },
-     create: function (req, res, next) {
+     Signin: function (req, res, next) {
 	    
         // Check for username and password in params sent via the form, if none
         // redirect the browser back to the sign-in form.
@@ -37,7 +37,7 @@ module.exports = {
         
         // Try to find the user by their email address.
         // findOneByEmail() is a dynamic finder in that it searches the model by a particular attribute.
-        User.findOneByEmail(req.param('username'), function foundUser(err, user) {
+        User.findOne(req.param('username'), function foundUser(err, user) {
             if (err) return next(err);
 
             if (!user) {
@@ -71,7 +71,7 @@ module.exports = {
                 req.session.User = user;
                 
                 // Redirect to their profile page
-                return res.redirect('signin' + user.id);
+                return res.redirect('homepage');
             });
         });
     },
