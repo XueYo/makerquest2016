@@ -35,9 +35,13 @@
   <body>
     <% if (req.session.User){ %>
       <a href="/Signin/destroy">Logout</a>
+      <div>
+      <a href="/QR/scan">Found a Hotspot!</a></div>
     <% } %>
     <%- body %>
     <a href="https://makerquest.wordpress.com/">Our blog</a>
+    <a href="/Helpview/View">How to Play</a>
+    <a href="mappage.ejs">Map</a>
 
 
 

@@ -50,7 +50,7 @@ module.exports = {
             if (!user) {
                 var noAccountError = [{
                     name: 'noAccount',
-                    message: 'The username ' + req.param('userName') + ' not found.'
+                    message: 'The username ' + req.param('userName') + ' User does not exist'
                 }];
                 req.session.flash = {
                     err: noAccountError

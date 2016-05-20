@@ -37,7 +37,9 @@ Progress: function (req, res) {
     User.findOne({"username": userName }).exec(function(err, theUser){
       
       if(theUser){
-        res.send("error")
+        res.send("Sorry, Username is taken")
+        
+        
       }
       else{
         // the user doesn't exist, so we can create this.
@@ -71,9 +73,10 @@ Progress: function (req, res) {
           req.session.User = signedInUser2
           data = {
             "firstName": signedInUser2.firstName,
-            "progress": signedInUser2.accomplished.length
+            "progress": signedInUser2.accomplished.length,
+            
 
-          }
+         }
           res.view('userStats', data)  
       })
       
