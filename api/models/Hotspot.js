@@ -17,7 +17,15 @@ module.exports = {
       },
       uniqId: {
       type: 'integer'
-  }
+    },
+
+    generateImage: function(){
+      var qr
+      qr = require('qrcode-js')
+      // this will be a b64 image
+      if(this.uniqId) return qr.toDataURL(this.uniqId.toString(), 4)
+      return ""
+    }
   }
 };
 

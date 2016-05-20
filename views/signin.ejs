@@ -7,14 +7,14 @@
      <img src="http://makerfaire.com/wp-content/themes/makerfaire/images/mf-feature-mfba16-200px.png"="Avatar" />
     
      <div class="profile__form">
-         <form action="Signin/Signin">
+         <form action="/Signin/Signin" method="POST">
       <div class="profile__fields">
         <div class="field">
-          <input type="text" id="fieldUser" class="input" required pattern=.*\S.* />
+          <input type="text" name="fieldUser" class="input" required pattern=.*\S.* />
           <label for="fieldUser" class="label">Quester Username</label>
         </div>
         <div class="field">
-          <input type="password" id="fieldPassword" class="input" required pattern=.*\S.* />
+          <input type="password" name="fieldPassword" class="input" required pattern=.*\S.* />
           <label for="fieldPassword" class="label">Password</label>
         </div>
         <div class="profile__footer">
@@ -22,7 +22,7 @@
         </div>
       </div> 
          </form>
-         
+        <P><a href="/signin/signUp">New? Register Here!</a>
      </div>
   </div>
 </div>

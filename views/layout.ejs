@@ -33,7 +33,11 @@
   </head>
 
   <body>
+    <% if (req.session.User){ %>
+      <a href="/Signin/destroy">Logout</a>
+    <% } %>
     <%- body %>
+    <a href="https://makerquest.wordpress.com/">Our blog</a>
 
 
 

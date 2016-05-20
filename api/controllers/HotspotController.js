@@ -7,18 +7,47 @@
 
 module.exports = {
 	
-    find: function(req,res){
-     var hotSpots = req.param('uniqId');
+    findHotspot: function(req, res){
+     var hotSpotPublicId = req.param('uniqId');
     
-     Hotspot.findOne({'uniqId': hotSpots}).exec(function(err,records){
-         if(err || !records){
-             res.send("nothing")
+     Hotspot.findOne({'uniqId': hotSpotPublicId}).exec(function(err, record){
+         if(err || !record){
+             res.send({"message": 'No record could be found',
+                        'error': err
+                      })
          }
          else{
-             res.send(records)
+             res.send(record)
          }
      });
     
+    },
+
+    image: function(req, res){
+        var intenralID, data 
+        internalID = req.param("id")
+        data = {
+            "errorMessage": "",
+            "imgData": ""
+        }
+
+        Hotspot.findOne({"id": internalID}).exec(function(err, record){
+            var imgData;
+            if (err || !record){
+                data['errorMessage']= "Not found"
+            }
+            else{
+                imgData = record.generateImage()
+                if(imgData){
+                    data["imgData"] = imgData
+                }
+                else{
+                    data['errorMessage'] = "This hotspot doesn't have an indentifier"
+                }
+            }
+
+            res.view("showQRCode",data)
+        })
     }
 
 

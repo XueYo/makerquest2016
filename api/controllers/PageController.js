@@ -1,6 +1,6 @@
 module.exports = {
   Test: function(req,res)
     {
-      res.view("signin")
+      res.view("signup")
     }
 };

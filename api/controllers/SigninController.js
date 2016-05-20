@@ -11,15 +11,19 @@ module.exports = {
       //}
   //}
    
-'LogIn': function(req,res){
+    LogIn: function(req,res){
     
-    res.view('signin');
-},
-     Signin: function (req, res, next) {
+        if(req.session.User){
+            return res.redirect("/User/home")
+        }
+        res.view('signin');
+    },
+    
+    Signin: function (req, res, next) {
 	    
         // Check for username and password in params sent via the form, if none
         // redirect the browser back to the sign-in form.
-        if (!req.param('username') || !req.param('password')) {
+        if (!req.param('fieldUser') || !req.param('fieldPassword')) {
 
             var usernamePasswordRequiredError = [{
                 name: 'usernamePasswordRequired',
@@ -32,12 +36,15 @@ module.exports = {
                 err: usernamePasswordRequiredError
             };
 
-            return res.redirect('signin');
+            
+            return res.redirect('/signin/login');
         }
-        
+        var formUserName, formPassword;
+        formUserName = req.param('fieldUser')
+        formPassword = req.param('fieldPassword')
         // Try to find the user by their email address.
         // findOneByEmail() is a dynamic finder in that it searches the model by a particular attribute.
-        User.findOne(req.param('username'), function foundUser(err, user) {
+        User.findOne({'username': formUserName}, function foundUser(err, user) {
             if (err) return next(err);
 
             if (!user) {
@@ -48,31 +55,24 @@ module.exports = {
                 req.session.flash = {
                     err: noAccountError
                 };
-                return res.redirect('signin');
+                return res.redirect('/Signin/login');
             }
            
             // Compare password from the form params to the encrypted password of the user found.
-            require('bcrypt').compare(req.param('password'), user.encryptedPassword, function (err, valid) {
-                if (err) return next(err);
-
-                if (!valid) {
-                    var usernamePasswordMismatchError = [{
-                        name: 'usernamePasswordMismatch',
-                        message: 'Invalid username and password combination.'
-                    }];
-                    req.session.flash = {
-                        err: usernamePasswordMismatchError
-                    };
-                    return res.redirect('signin');
-                }
+            //require('bcrypt').compare(req.param('password'), user.encryptedPassword, function (err, valid) {
+            if(user.password === formPassword){
                 
                 // Log user in
                 req.session.authenticated = true;
                 req.session.User = user;
                 
                 // Redirect to their profile page
-                return res.redirect('homepage');
-            });
+                res.redirect('/User/home');
+            }
+            else{
+                // password doesn't match
+                res.redirect('/Signin/Login')
+            }
         });
     },
 
@@ -80,7 +80,19 @@ module.exports = {
         
         // Wipe out the session (log out)
         req.session.destroy();
-        res.redirect('signin');
+        res.redirect('/signin/login');
+    },
+
+    signUp: function(req, res){
+        if (req.session.User){
+            // someone is already signed in
+            res.redirect('user/home')
+        }
+        else{
+            res.view("signup")
+
+        }
+
     }
 
 
