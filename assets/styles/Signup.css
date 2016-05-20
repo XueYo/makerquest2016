@@ -13,18 +13,18 @@ body {
   margin: 0;
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   min-height: 100%;
-  background: linear-gradient(to bottom, #DF0101 0%, #F79F81 200100%);
+  background: rgb(255, 255, 255);
   color: #777;
 }
 img {
   vertical-align: right;
   max-width:100%;
 }
-button {
+*button {
   cursor: pointer;
   border: 0;
   padding: 0;
-  background-color: transparent;
+  background-color: rgb(255, 255, 255);
 }
 
 /* Container */
