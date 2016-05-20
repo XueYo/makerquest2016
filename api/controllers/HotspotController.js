@@ -42,7 +42,7 @@ module.exports = {
                     data["imgData"] = imgData
                 }
                 else{
-                    data['errorMessage'] = "This hotspot doesn't have an indentifier"
+                    data['errorMessage'] = "This hotspot doesn't have an identifier"
                 }
             }
 
