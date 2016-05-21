@@ -13,7 +13,11 @@ body {
   margin: 0;
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   min-height: 100%;
+<<<<<<< HEAD
   background: rgb(255, 255, 255);
+=======
+  background: linear-gradient(to bottom, ##F0F8FF 0%, #F79F81 200100%);
+>>>>>>> 035e7e5a2d0ac8154e8b039e791ce985c2a40f62
   color: #777;
 }
 img {
@@ -44,7 +48,7 @@ img {
 .profile--open {
 }
 .profile--open .profile__form {
-  visibility: visible;
+  visibility: hidden;;
   height: auto;
   opacity: 1;
   transform: translateY(-6em);
@@ -52,7 +56,7 @@ img {
 }
 .profile--open .profile__fields {
   opacity: 1;
-  visibility: visible;
+  visibility: hidden;;
 }
 .profile--open .profile__avatar {
   transform: translate(-50%, -1.5em);
@@ -61,7 +65,7 @@ img {
 .profile__form {
   position: relative;
   background: white;
-  visibility: hidden;
+  visibility: hidden;;
   opacity: 0;
   height: 0;
   padding: 3em;
@@ -75,7 +79,7 @@ img {
 }
 .profile__fields {
   opacity: 0;
-  visibility: hidden;
+  visibility: hidden;;;
   transition: opacity .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .profile__avatar {

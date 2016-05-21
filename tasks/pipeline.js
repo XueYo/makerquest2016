@@ -27,9 +27,29 @@ var jsFilesToInject = [
 
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
+  
+  'js/jsqrcode-master/jsqrcode-master/src/grid.js',
+  'js/jsqrcode-master/jsqrcode-master/src/version.js',
+  'js/jsqrcode-master/jsqrcode-master/src/detector.js',
+  'js/jsqrcode-master/jsqrcode-master/src/formatinf.js',
+  'js/jsqrcode-master/jsqrcode-master/src/errorlevel',
+  'js/jsqrcode-master/jsqrcode-master/src/bitmat.js',
+  'js/jsqrcode-master/jsqrcode-master/src/datablock.js',
+  'js/jsqrcode-master/jsqrcode-master/src/bmparser.js',
+  'js/jsqrcode-master/jsqrcode-master/src/datamask.js',
+  'js/jsqrcode-master/jsqrcode-master/src/rsdecoder.js',
+  'js/jsqrcode-master/jsqrcode-master/src/gf256poly.js',
+  'js/jsqrcode-master/jsqrcode-master/src/gf256.js',
+  'js/jsqrcode-master/jsqrcode-master/src/decoder.js',
+  'js/jsqrcode-master/jsqrcode-master/src/qrcode.js',
+  'js/jsqrcode-master/jsqrcode-master/src/findpat.js',
+  'js/jsqrcode-master/jsqrcode-master/src/alignpat.js',
+  'js/jsqrcode-master/jsqrcode-master/src/databr.js',
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
+
+
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
