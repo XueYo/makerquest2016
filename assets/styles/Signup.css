@@ -13,18 +13,22 @@ body {
   margin: 0;
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   min-height: 100%;
-  background: linear-gradient(to bottom, ##F0F8FF 0%, #F79F81 200100%);
+<<<<<<< HEAD
+  background: rgb(255, 255, 255);
+=======
+  background: linear-gradient(to bottom, #F0F8FF 0%, #F79F81 200100%);
+>>>>>>> 035e7e5a2d0ac8154e8b039e791ce985c2a40f62
   color: #777;
 }
 img {
   vertical-align: right;
   max-width:100%;
 }
-button {
+*button {
   cursor: pointer;
   border: 0;
   padding: 0;
-  background-color: transparent;
+  background-color: rgb(255, 255, 255);
 }
 
 /* Container */
@@ -44,7 +48,7 @@ button {
 .profile--open {
 }
 .profile--open .profile__form {
-  visibility: hidden;;
+  visibility: visible;
   height: auto;
   opacity: 1;
   transform: translateY(-6em);
@@ -52,7 +56,7 @@ button {
 }
 .profile--open .profile__fields {
   opacity: 1;
-  visibility: hidden;;
+ visibility: visible;
 }
 .profile--open .profile__avatar {
   transform: translate(-50%, -1.5em);
@@ -60,9 +64,9 @@ button {
 }
 .profile__form {
   position: relative;
-  background: white;
-  visibility: hidden;;
-  opacity: 0;
+/*  background: red;
+  visibility: visible;
+  opacity: 0; */
   height: 0;
   padding: 3em;
   border-radius: .25em;
@@ -74,8 +78,8 @@ button {
     padding .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .profile__fields {
-  opacity: 0;
-  visibility: hidden;;;
+/*  opacity: 0;
+visibility: visible; */
   transition: opacity .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .profile__avatar {
