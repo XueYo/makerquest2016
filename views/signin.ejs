@@ -9,6 +9,7 @@
      <div class="profile__form">
          <form action="/Signin/Signin" method="POST">
       <div class="profile__fields">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
         <div class="field">
           <input type="text" name="fieldUser" class="input" required pattern=.*\S.* />
           <label for="fieldUser" class="label">Quester Username</label>
