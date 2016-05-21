@@ -14,11 +14,11 @@ body {
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
   min-height: 100%;
 <<<<<<< HEAD
-  background: rgb(255, 255, 255);
+  background:#5c5c8a;
 =======
-  background: linear-gradient(to bottom, ##F0F8FF 0%, #F79F81 200100%);
->>>>>>> 035e7e5a2d0ac8154e8b039e791ce985c2a40f62
-  color: #777;
+  background: linear-gradient( 0deg, blue, green 40%, red );/*(to bottom, ##F0F8FF 100%, #F79F81 200100%);
+>>>>>>> 035e7e5a2d0ac8154e8b039e791ce985c2a40f62*/
+  /*color: #777;*/
 }
 img {
   vertical-align: right;
