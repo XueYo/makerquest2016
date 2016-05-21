@@ -4,7 +4,7 @@
 
 <style type="text/css">
 </style>
-
+<script src="PATH/dist/qcode-decoder.min.js"></script>
 <script src="/js/jsqrcode-master/jsqrcode-master/src/grid.js"></script>
 <script src="/js/jsqrcode-master/jsqrcode-master/src/version.js"></script>
 <script src="/js/jsqrcode-master/jsqrcode-master/src/detector.js"></script>
@@ -31,8 +31,8 @@ var gCtx = null;
 	var ii=0;
 	var jj=0;
 	var c=0;
-	
-	
+
+
 function dragenter(e) {
   e.stopPropagation();
   e.preventDefault();
@@ -68,12 +68,12 @@ function handleFiles(f)
       // Read in the image file as a data URL.
       reader.readAsDataURL(f[i]);	}
 }
-	
+
 function read(a)
 {
 	alert(a);
-}	
-	
+}
+
 function load()
 {
 	initCanvas(640,480);
@@ -84,8 +84,8 @@ function load()
 function initCanvas(ww,hh)
 	{
 		gCanvas = document.getElementById("qr-canvas");
-		gCanvas.addEventListener("dragenter", dragenter, false);  
-		gCanvas.addEventListener("dragover", dragover, false);  
+		gCanvas.addEventListener("dragenter", dragenter, false);
+		gCanvas.addEventListener("dragover", dragover, false);
 		gCanvas.addEventListener("drop", drop, false);
 		var w = ww;
 		var h = hh;
@@ -98,12 +98,12 @@ function initCanvas(ww,hh)
 		imageData = gCtx.getImageData( 0,0,320,240);
 	}
 
-	function passLine(stringPixels) { 
+	function passLine(stringPixels) {
 		//a = (intVal >> 24) & 0xff;
 
 		var coll = stringPixels.split("-");
-	
-		for(var i=0;i<320;i++) { 
+
+		for(var i=0;i<320;i++) {
 			var intVal = parseInt(coll[i]);
 			r = (intVal >> 16) & 0xff;
 			g = (intVal >> 8) & 0xff;
@@ -113,13 +113,13 @@ function initCanvas(ww,hh)
 			imageData.data[c+2]=b;
 			imageData.data[c+3]=255;
 			c+=4;
-		} 
+		}
 
-		if(c>=320*240*4) { 
+		if(c>=320*240*4) {
 			c=0;
       			gCtx.putImageData(imageData, 0,0);
-		} 
- 	} 
+		}
+ 	}
 
         function captureToCanvas() {
 		flash = document.getElementById("embedflash");
@@ -132,14 +132,14 @@ function initCanvas(ww,hh)
 
 <body onload="load()">
     <div class="container">
-	
+
   	<object  id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="320" height="240">
   		<param name="movie" value="camcanvas.swf" />
   		<param name="quality" value="high" />
 		<param name="allowScriptAccess" value="always" />
   		<embed  allowScriptAccess="always"  id="embedflash" src="camcanvas.swf" quality="high" width="320" height="240" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" mayscript="true"  />
     </object>
-	
+
     </div>
 <button onclick="captureToCanvas()">Capture</button><br>
 <canvas id="qr-canvas" width="640" height="480"></canvas>
